@@ -1,0 +1,3 @@
+Línia 1: Creació de la carpeta resultats.
+Línia 2: Creació del fitxer resum.
+Línia 3: Informació inclosa al fitxer.
