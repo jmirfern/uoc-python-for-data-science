@@ -5,6 +5,7 @@ import sys
 
 import numpy as np
 
+## Funció original inclosa a l'enunciat
 def count_white_pixels(image: np.ndarray, threshold: int = 200) -> int:
     """
     Counts how many pixels in a grayscale image are greater than a 
@@ -30,18 +31,21 @@ def count_white_pixels(image: np.ndarray, threshold: int = 200) -> int:
 
 def count_white_pixels_sequential(images: list) -> list:
     """
-    Applies count_white_pixels sequentially to a list of images.
+    Aplica la funció count_white_pixels de forma seqüencial a una llista d'imatges.
 
     Args:
-        images: List of 2D NumPy arrays representing grayscale images.
+        images: Llista d'arrays 2D de NumPy representant imatges en escala de grisos.
 
     Returns:
-        List of pixel counts for each image.
+        Llista de nombres de píxels blancs per a cada imatge.
     """
+    # Inicialitzem el comptador de temps
     start_time = time.perf_counter()
 
+    # Aplica count_white_pixels a cada imatge de la llista de manera seqüencial
     results = [count_white_pixels(image) for image in images]
 
+    # Finalitza el comptador de temps i imprimeix per pantalla
     total_time = time.perf_counter() - start_time
     print(f"Temps seqüencial: {total_time:.4f} segons")
 
@@ -50,13 +54,13 @@ def count_white_pixels_sequential(images: list) -> list:
 
 def count_white_pixels_parallel(images: list) -> list:
     """
-    Applies count_white_pixels in parallel using multiprocessing.
+    Aplica la funció count_white_pixels en paral·lel utilitzant multiprocessing
 
     Args:
-        images: List of 2D NumPy arrays representing grayscale images.
+        images: Llista d'arrays 2D de NumPy representant imatges en escala de grisos
 
     Returns:
-        List of pixel counts for each image.
+        Llista de nombres de píxels blancs per a cada imatge
     """
     # Inicialitzem el comptador de temps
     start_time = time.perf_counter()
