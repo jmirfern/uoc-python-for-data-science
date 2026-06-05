@@ -1,0 +1,7 @@
+# Dependències PAC4
+
+pandas>=1.3.0
+matplotlib>=3.4.0
+networkx>=2.6.0
+ipython>=7.0.0
+jupyter>=1.0.0
