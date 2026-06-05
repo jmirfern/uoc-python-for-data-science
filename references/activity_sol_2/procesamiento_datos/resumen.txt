@@ -1,0 +1,3 @@
+Línea 1: Inicio del procesamiento.
+Línea 2: Datos cargados correctamente.
+Línea 3: Fin del reporte.
