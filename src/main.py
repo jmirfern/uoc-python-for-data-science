@@ -311,7 +311,7 @@ Exemples d'ús:
                     7: execute_exercise_7,
                 }
                 context = exercises_functions[ex_num](context)
-    except Exception as e:  # pylint: disable=broad-exception-caught
+    except Exception as e:
         print(f"\n❌ Error en l'exercici {ex_num}: {e}")
         traceback.print_exc()
         sys.exit(1)

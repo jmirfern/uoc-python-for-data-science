@@ -8,7 +8,7 @@ import pandas as pd
 import config
 
 
-def FTR(data: pd.DataFrame) -> pd.DataFrame:  # pylint: disable=invalid-name
+def FTR(data: pd.DataFrame) -> pd.DataFrame: 
     """Calcula el nombre de partits guanyats pels locals, visitants i empatats.
 
     Args:
@@ -28,7 +28,7 @@ def FTR(data: pd.DataFrame) -> pd.DataFrame:  # pylint: disable=invalid-name
     return ftr
 
 
-def plot_FTR(ftr: pd.DataFrame) -> None:  # pylint: disable=invalid-name
+def plot_FTR(ftr: pd.DataFrame) -> None: 
     """Genera i desa una gràfica del resultat dels partits.
 
     Args:

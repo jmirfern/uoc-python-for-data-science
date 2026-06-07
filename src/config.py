@@ -7,7 +7,6 @@ from datetime import datetime
 from pathlib import Path
 
 # Variables globals
-# pylint: disable=invalid-name
 nom_alumne = "Jonathan_Mir"
 date_time = datetime.now().strftime("%Y%m%d_%H%M%S")
 

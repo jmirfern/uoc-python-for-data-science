@@ -182,6 +182,8 @@ Mostrem a continuació algunes captures de la documentació generada:
 
 ## Comprovació dels Tests
 
+Els tests unitaris s'han desenvolupat al fitxer [tests/tests_ex6.py](tests/tests_ex6.py)
+
 Els tests es poden executar amb `unittest`, que forma part de la llibreria
 estàndard de Python:
 
@@ -190,12 +192,19 @@ source .venv/bin/activate
 python -m unittest tests/tests_ex6.py -v
 ```
 
+El resultat dels tests aplicats en l'exercici 5 es mostra a continuació:
+
+![](screenshots/Ex11_Tests.png)
+
 Opcionalment, si es vol executar amb `pytest`, cal instal·lar-lo per separat:
 
 ```bash
 python -m pip install pytest
 python -m pytest tests/tests_ex6.py -v
 ```
+Com es mostra a continuació, el resultat de la sortida és més visual:
+
+![screenshots/Ex11_Tests_Pytest.png](screenshots/Ex11_Tests_Pytest.png)
 
 ## Dependències del Projecte
 
