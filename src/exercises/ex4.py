@@ -8,7 +8,7 @@ import pandas as pd
 import config
 
 
-def FTR(data: pd.DataFrame) -> pd.DataFrame:
+def FTR(data: pd.DataFrame) -> pd.DataFrame:  # pylint: disable=invalid-name
     """Calcula el nombre de partits guanyats pels locals, visitants i empatats.
 
     Args:
@@ -28,7 +28,7 @@ def FTR(data: pd.DataFrame) -> pd.DataFrame:
     return ftr
 
 
-def plot_FTR(ftr: pd.DataFrame) -> None:
+def plot_FTR(ftr: pd.DataFrame) -> None:  # pylint: disable=invalid-name
     """Genera i desa una gràfica del resultat dels partits.
 
     Args:
@@ -54,4 +54,4 @@ def plot_FTR(ftr: pd.DataFrame) -> None:
     )
     filepath = config.IMG_DIR / filename
     plt.savefig(filepath, dpi=config.PLOT_DPI)
-    plt.close()
+    plt.close(fig)

@@ -53,4 +53,4 @@ def plot_matches_team_total(matches_team_total: pd.DataFrame) -> None:
     )
     filepath = config.IMG_DIR / filename
     plt.savefig(filepath, dpi=config.PLOT_DPI)
-    plt.close()
+    plt.close(fig)

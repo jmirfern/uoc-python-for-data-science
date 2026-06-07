@@ -1,240 +1,242 @@
 # PAC4 - Anàlisi de Dades de LaLiga (1995-2025)
 
-## Descripció del Projecte
+**Nom:** Jonathan Mir  
+**Assignatura:** 22.503 - Programació per a la Ciència de Dades  
+**Universitat:** UOC - Universitat Oberta de Catalunya  
+**Llicència:** MIT, definida al fitxer [LICENSE](LICENSE).
 
-Aquest projecte és una anàlisi exhaustiva de les dades històriques de la Lliga Espanyola de Futbol des de 1995 fins a 2025. El projecte s'ha desenvolupat com a part de la quarta activitat d'avaluació continuada (PAC4) de l'assignatura "Programació per a la Ciència de Dades" del Màster en Ciència de Dades Aplicada de la UOC.
+## Descripció
 
-El projecte inclou anàlisis estadístiques completes sobre:
-- Càrrega i anàlisi exploratòria de dades (EDA)
-- Distribució de gols locals i visitants
-- Partits jugats per equip
-- Resultats de partits (victòries, empats, derrotes)
-- Classificació històrica acumulada (1995-2025)
-- Podi dels millors equips
-- Gràfics de connexions entre equips
+Aquest projecte analitza dades històriques de partits de LaLiga entre 1995 i
+2025. El codi està organitzat en mòduls Python per exercici i permet executar el
+flux complet des de línia de comandes.
+
+El projecte inclou:
+
+- Càrrega i anàlisi exploratòria del dataset.
+- Càlcul de partits totals per equip.
+- Distribució de gols locals i visitants.
+- Anàlisi de resultats finals dels partits.
+- Classificació històrica per punts.
+- Resum de gols i podi dels millors equips.
+- Gràfic de connexions entre equips.
+- Tests unitaris de l'exercici 6.
+- Documentació HTML generada amb `pdoc`.
 
 ## Estructura del Projecte
 
-```
+```text
 .
 ├── src/
 │   ├── main.py                 # Punt d'entrada principal
 │   ├── config.py               # Configuració global del projecte
-│   ├── exercises/              # Mòduls dels exercicis
+│   ├── CAT-PEC4.ipynb          # Notebook de treball amb l'enunciat
+│   ├── data/
+│   │   └── raw/
+│   │       └── LaLiga_Matches.csv
+│   ├── exercises/
 │   │   ├── __init__.py
-│   │   ├── ex1.py             # Càrrega i EDA
-│   │   ├── ex2.py             # Partits totals
-│   │   ├── ex3.py             # Distribució de gols
-│   │   ├── ex4.py             # Resultats FTR
-│   │   ├── ex5.py             # Classificació global
-│   │   ├── ex6.py             # Summary i Podi
-│   │   └── ex7.py             # Gràfics de connexions
-│   ├── data/                   # Datasets
+│   │   ├── ex1.py              # Càrrega i EDA
+│   │   ├── ex2.py              # Partits totals
+│   │   ├── ex3.py              # Distribució de gols
+│   │   ├── ex4.py              # Resultats FTR
+│   │   ├── ex5.py              # Classificació global
+│   │   ├── ex6.py              # Summary, podi i funcions testades
+│   │   └── ex7.py              # Gràfic de connexions
 │   └── img/                    # Gràfiques generades
 ├── tests/
-│   └── tests_ex6.py           # Tests de l'exercici 6
-├── doc/                        # Documentació generada
-├── screenshots/                # Captures de pantalla
-├── requirements.txt            # Dependències del projecte
-├── README.md                   # Aquest fitxer
-└── LICENSE                     # Llicència del projecte
-
+│   └── tests_ex6.py            # Tests unitaris de l'exercici 6
+├── doc/                        # Documentació HTML generada
+├── screenshots/                # Captures i evidències de verificació
+├── requirements.txt            # Dependències d'execució del projecte
+├── README.md                   # Instruccions del projecte
+└── LICENSE                     # Llicència MIT
 ```
 
-## Requisits del Sistema
+La carpeta `references/` conté material de consulta i no forma part de la
+documentació generada ni és necessària per executar el projecte.
 
-- Python 3.8 o superior
-- pip (gestor de paquets de Python)
+## Instal·lació en un entorn virtual
 
-## Instal·lació
+Requisits previs:
 
-### 1. Clonar o descarregar el projecte
+- Python 3.8 o superior.
+- `pip`.
+- Terminal situada a l'arrel del projecte.
 
-```bash
-cd /ruta/al/projecte
-```
-
-### 2. Crear un entorn virtual (recomanat)
+Crear i activar un entorn virtual:
 
 ```bash
 python3 -m venv .venv
-source .venv/bin/activate  # En macOS/Linux
-# o
-.venv\Scripts\activate  # En Windows
+source .venv/bin/activate
 ```
 
-### 3. Instal·lar les dependències
+En Windows:
 
 ```bash
-pip install -r requirements.txt
+python -m venv .venv
+.venv\Scripts\activate
 ```
 
-## Ús
+Instal·lar les dependències d'execució:
 
-### Executar tots els exercicis (1-7)
+```bash
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+```
+
+El fitxer [requirements.txt](requirements.txt) només inclou llibreries associades
+a l'execució del projecte. Les eines de linting, documentació i tests
+s'instal·len per separat quan calen.
+
+## Execució del Projecte
+
+Executar tots els exercicis:
+
+```bash
+source .venv/bin/activate
+cd src
+python main.py
+```
+
+També es pot indicar fins a quin exercici executar. Per exemple:
 
 ```bash
 cd src
-python main.py
-# o explícitament
+python main.py -ex 1
+python main.py -ex 5
 python main.py -ex 7
 ```
 
-### Executar exercicis específics
+Consultar l'ajuda:
 
 ```bash
-# Només l'exercici 1
-python main.py -ex 1
-
-# Exercicis 1-3
-python main.py -ex 3
-
-# Exercicis 1-5
-python main.py -ex 5
-```
-
-### Obtenir ajuda
-
-```bash
-python main.py -h
-# o
+cd src
 python main.py --help
 ```
 
-### Exemple de sortida
+Les gràfiques generades es desen a la carpeta `src/img/`.
 
-```
-======================================================================
-PAC4 - LaLiga Data Analysis Project (1995-2025)
-Alumne: Jonathan_Mir
-======================================================================
+## Comprovació de Linting
 
-======================================================================
-EXERCICI 1
-======================================================================
+El projecte inclou el fitxer [.pylintrc](.pylintrc) amb la configuració de
+Pylint. Com que Pylint és una eina de qualitat de codi i no una dependència
+d'execució, no està inclosa a `requirements.txt`.
 
-Carregant el dataset i realitzant l'anàlisi exploratòria...
+Els criteris aplicats a [.pylintrc](.pylintrc) són:
 
-Primers valors del dataset:
-    Date  HomeTeam  AwayTeam  FTHG  FTAG  FTR
-0   08/08/1995  Real Madrid  Barcelona    1    2    A
-...
-```
+- `persistent=no`: evita que Pylint generi fitxers de cache persistents.
+- `ignore=references`: exclou la carpeta `references/`, que només conté material
+  de consulta i no forma part del codi lliurable del projecte.
+- `max-line-length=100`: fixa la longitud màxima de línia en 100 caràcters per
+  mantenir el codi llegible sense ser excessivament restrictiu.
+- `disable=duplicate-code`: desactiva l'avís de codi duplicat, ja que alguns
+  exercicis comparteixen patrons semblants per generar i desar gràfiques.
 
-## Verificació de Qualitat del Codi
-
-### Verificar amb Pylint
+Instal·lar i executar Pylint:
 
 ```bash
-pylint src/exercises/ex*.py src/main.py --disable=line-too-long
+source .venv/bin/activate
+python -m pip install pylint
+pylint src tests
 ```
 
-### Verificar amb Black (formatador)
+Mostrem a continuació la sortida de l'execució:
 
-```bash
-black src/ --check
-```
+![Ex9](screenshots/Ex9_Linting.png)
 
-### Verificar amb Flake8
-
-```bash
-flake8 src/ --max-line-length=100
-```
-
-## Execució de Tests
-
-### Executar tots els tests
-
-```bash
-cd tests
-python -m pytest tests_ex6.py -v
-# o amb unittest
-python -m unittest tests_ex6.py -v
-```
-
-### Executar tests específics
-
-```bash
-python -m pytest tests_ex6.py::TestEx6::test_fun_total_goals -v
-```
-
-### Cobertura de tests
-
-```bash
-pip install coverage
-coverage run -m pytest tests/tests_ex6.py
-coverage report -m
-```
+En aquest cas, hem aconseguit una puntuació de 10/10 en l'aplicació de la guia d'estil PEP8.
 
 ## Generació de Documentació
 
-### Generar documentació amb Sphinx
+Totes les funcions del codi de `src/` tenen docstrings. La documentació HTML es
+genera amb `pdoc`, que produeix una sortida més llegible que `pydoc`. La
+generació apunta explícitament als mòduls del projecte i exclou `references/`.
+
+Instal·lar `pdoc` i generar la documentació:
 
 ```bash
-pip install sphinx
-cd doc
-sphinx-quickstart
-# Seguir les instruccions
+source .venv/bin/activate
+python -m pip install pdoc
+PYTHONPATH=src MPLCONFIGDIR=/tmp python -m pdoc config main exercises -o doc
 ```
 
-### Generar documentació amb pdoc
+Obrir la documentació:
 
 ```bash
-pip install pdoc
-pdoc src/exercises/ -o doc/
+open doc/index.html
+```
+
+En sistemes sense la comanda `open`, obriu manualment el fitxer
+[doc/index.html](doc/index.html) amb el navegador. 
+
+Mostrem a continuació algunes captures de la documentació generada:
+
+![screenshots/Ex10_Config.png](screenshots/Ex10_Config.png)
+
+![screenshots/Ex10_Main.png](screenshots/Ex10_Main.png)
+
+
+
+
+
+## Comprovació dels Tests
+
+Els tests es poden executar amb `unittest`, que forma part de la llibreria
+estàndard de Python:
+
+```bash
+source .venv/bin/activate
+python -m unittest tests/tests_ex6.py -v
+```
+
+Opcionalment, si es vol executar amb `pytest`, cal instal·lar-lo per separat:
+
+```bash
+python -m pip install pytest
+python -m pytest tests/tests_ex6.py -v
 ```
 
 ## Dependències del Projecte
 
-- **pandas**: Manipulació i anàlisi de dades
-- **matplotlib**: Creació de visualitzacions
-- **networkx**: Anàlisi i visualització de grafs
-- **ipython**: Suport per a Jupyter notebooks
-- **jupyter**: Entorn de notebooks interactius
+Les dependències d'execució són:
 
-Per veure les versions específiques, consulteu [requirements.txt](requirements.txt).
+- `pandas`: manipulació i anàlisi de dades.
+- `matplotlib`: generació de gràfiques.
+- `networkx`: construcció i visualització de grafs.
+- `ipython`: suport per a `display` en la sortida dels exercicis.
 
-## Informació de l'Alumne
+El fitxer [requirements.txt](requirements.txt) no inclou `pylint`, `pdoc`,
+`pytest` ni altres eines auxiliars, seguint el requisit de l'exercici 12.
 
-- **Nom**: Jonathan_Mir
-- **Assignatura**: 22.503 · Programació per a la Ciència de Dades
-- **Grau**: Màster en Ciència de Dades Aplicada
-- **Universitat**: UOC - Universitat Oberta de Catalunya
+## Llicència
 
-## Informació sobre els Exercicis
+El projecte es distribueix sota la llicència MIT. El text complet es troba a
+[LICENSE](LICENSE).
 
-### Exercici 1 (0.4p): Càrrega i EDA
-- Càrrega del dataset
-- Eliminació de columnes innecessàries
-- Anàlisi exploratòria de dades
-- Visualització de la distribució de gols
+## Comandes per Pujar el Projecte a GitHub
 
-### Exercici 2 (0.6p): Partits Totals
-- Càlcul de partits jugats per equip
-- Identificació d'equips a primera divisió
-- Gràfica de partits per equip
+Inicialitzar el repositori si encara no existeix:
 
-### Exercici 3 (0.6p): Distribució de Gols
-- Càlcul de la distribució de gols locals i visitants
-- Visualització mitjançant gràfiques de barres
+```bash
+git init
+git add README.md requirements.txt LICENSE src tests doc screenshots .pylintrc
+git commit -m "Entrega PAC4 projecte LaLiga"
+```
 
-### Exercici 4 (0.6p): Resultats FTR
-- Anàlisi de victòries, derrotes i empats
-- Càlcul del percentatge de victòries locals
+Crear un repositori buit a GitHub i enllaçar-lo:
 
-### Exercici 5 (0.6p): Classificació Global
-- Càlcul de punts acumulats
-- Determinació del guanyador històric
+```bash
+git branch -M main
+git remote add origin https://github.com/USUARI/NOM_REPOSITORI.git
+git push -u origin main
+```
 
-### Exercici 6 (0.6p): Summary i Podi
-- Creació del dataframe summary
-- Visualització del podi històric
-- Tests unitaris inclosos
+Per pujades posteriors:
 
-### Exercici 7 (0.6p): Gràfics de Connexions
-- Creació del graf de connexions entre equips
-- Visualització de relacions entre els 5 millors equips
-
-### Exercici 8 (2p): Projecte Python Modular
-- Organització del codi en mòduls
-- Implementació de main.py amb arguments CLI
+```bash
+git status
+git add .
+git commit -m "Actualitza projecte"
+git push
+```

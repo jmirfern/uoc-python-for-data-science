@@ -127,10 +127,10 @@ def podium(summary_1996_2025: pd.DataFrame) -> None:
     ax.spines["left"].set_visible(False)
     ax.spines["bottom"].set_visible(False)
 
-    for idx, bar in enumerate(bars):
-        height = bar.get_height()
+    for idx, rectangle in enumerate(bars):
+        height = rectangle.get_height()
         ax.text(
-            bar.get_x() + bar.get_width() / 2,
+            rectangle.get_x() + rectangle.get_width() / 2,
             height + max(values) * 0.01,
             names[idx],
             ha="center",
@@ -149,4 +149,4 @@ def podium(summary_1996_2025: pd.DataFrame) -> None:
     )
     filepath = config.IMG_DIR / filename
     plt.savefig(filepath, dpi=config.PLOT_DPI)
-    plt.close()
+    plt.close(fig)

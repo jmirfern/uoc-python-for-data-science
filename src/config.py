@@ -7,15 +7,16 @@ from datetime import datetime
 from pathlib import Path
 
 # Variables globals
+# pylint: disable=invalid-name
 nom_alumne = "Jonathan_Mir"
 date_time = datetime.now().strftime("%Y%m%d_%H%M%S")
 
 # Rutes de fitxers
 BASE_DIR = Path(__file__).resolve().parent
-DATA_DIR = (BASE_DIR / ".." / "data" / "raw" / "").resolve()
+DATA_DIR = (BASE_DIR / "." / "data" / "raw" / "").resolve()
 DATA_FILE = DATA_DIR / "LaLiga_Matches.csv"
-OUTPUT_PATH = (BASE_DIR / ".." / "data" / "results").resolve()
-IMG_PATH = (BASE_DIR / ".." / "img").resolve()
+OUTPUT_PATH = (BASE_DIR / "." / "data" / "results").resolve()
+IMG_PATH = (BASE_DIR / "." / "img").resolve()
 
 # Rutes del projecte
 PROJECT_DIR = BASE_DIR.parent
