@@ -3,7 +3,7 @@
 PAC4 - LaLiga Data Analysis Project
 Punt d'entrada principal de l'aplicació.
 
-Permet executar els exercicis de forma seqüencial mitjançant arguments de línia d'ordres.
+Permet executar els exercicis de forma seqüencial mitjançant arguments de línia de comandes..
 """
 
 import argparse
@@ -261,7 +261,7 @@ def execute_exercise_7(context: dict) -> dict:
 
 
 def main() -> None:
-    """Funció principal que gestiona els arguments de línia d'ordres."""
+    """Funció principal que gestiona els arguments de línia de comandes i executa els exercicis"""
     parser = argparse.ArgumentParser(
         description="PAC4 - LaLiga Data Analysis Project (1995-2025)",
         formatter_class=argparse.RawDescriptionHelpFormatter,
