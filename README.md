@@ -241,6 +241,9 @@ git remote add origin https://github.com/USUARI/NOM_REPOSITORI.git
 git push -u origin main
 ```
 
+Concretament el projecte està disponible a la branca `PAC4` del següent repositori:
+[uoc-python-for-data-science](https://github.com/jmirfern/uoc-python-for-data-science.git)
+
 Per pujades posteriors:
 
 ```bash
